@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: all 0.4s ease-in-out;
+        }
+        .switch{
+            width: 150px;
+            height:50px ;
+            transition: all 0.4s ease-in-out;
+            border-radius: 50px;
+            position: relative;
+            box-shadow: darkgray;
+            border: 3px solid white;
+            background-color: lightgray;
+            cursor: pointer;
+        }
+        .switch::before{
+            content: "";
+            top: 50%;
+            position: absolute;
+            background-color: white;
+            height: 40px;
+            width: 40px;
+            border-radius: 50px;
+            left: 5px;
+            transition:all 0.4s ease;
+            transform: translateY(-50%);
+        }
+        .switch.active::before{
+            background-color: white;
+            left: calc(100% - 40px - 5px);
+            transition: all 0.4s ease-in-out;
+        }
+        .switch.active{
+            background-color: blue;
+        }
+        p {
+            font-size: 25px;
+
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="switch"></div>
+    <p>Recieve incoming calls</p>
+    <script>
+        const body = document.querySelector("body");
+        const toggle = document.querySelector('.switch');
+
+        toggle.addEventListener('click', () => toggle.classList.toggle('active'));
+    </script>
+    
+</body>
+</html>
